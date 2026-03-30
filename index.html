@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Louisville Smart Squad - Friendly Computer Help in Louisville, KY</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Verdana:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * { font-family: 'Verdana', sans-serif; }
+        
+        :root {
+            --gold: #D4A017;
+            --gold-dark: #B8860B;
+            --navy: #1a365d;
+            --white: #ffffff;
+            --light-gray: #f5f5f5;
+            --dark-text: #1a1a1a;
+        }
+        
+        body {
+            background: var(--white);
+            color: var(--dark-text);
+            font-size: 20px;
+            line-height: 1.6;
+        }
+        
+        .navbar {
+            background: var(--navy) !important;
+            padding: 15px 0;
+        }
+        
+        .navbar-brand {
+            font-size: 28px;
+            font-weight: bold;
+            color: var(--gold) !important;
+        }
+        
+        .nav-link {
+            color: var(--white) !important;
+            font-size: 22px;
+            font-weight: bold;
+            padding: 10px 20px !important;
+            border-radius: 8px;
+            transition: background 0.3s;
+        }
+        
+        .nav-link:hover {
+            background: rgba(212, 160, 23, 0.2);
+            color: var(--gold) !important;
+        }
+        
+        .nav-link.active {
+            background: var(--gold);
+            color: var(--navy) !important;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, var(--navy) 0%, #2c5282 100%);
+            color: var(--white);
+            padding: 80px 0;
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+        }
+        
+        .hero-section h1 {
+            font-size: 52px;
+            font-weight: bold;
+            margin-bottom: 30px;
+            color: var(--gold);
+        }
+        
+        .hero-section p {
+            font-size: 26px;
+            margin-bottom: 40px;
+        }
+        
+        .btn-call {
+            background: var(--gold);
+            color: var(--navy);
+            font-size: 28px;
+            font-weight: bold;
+            padding: 20px 50px;
+            border-radius: 15px;
+            border: 4px solid var(--gold-dark);
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+        
+        .btn-call:hover {
+            background: var(--gold-dark);
+            color: var(--white);
+            transform: scale(1.05);
+        }
+        
+        .btn-secondary-custom {
+            background: var(--white);
+            color: var(--navy);
+            font-size: 24px;
+            font-weight: bold;
+            padding: 18px 40px;
+            border-radius: 15px;
+            border: 3px solid var(--white);
+            text-decoration: none;
+            display: inline-block;
+            margin-left: 20px;
+            transition: all 0.3s;
+        }
+        
+        .btn-secondary-custom:hover {
+            background: transparent;
+            color: var(--white);
+        }
+        
+        .trust-bar {
+            background: var(--gold);
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        .trust-item {
+            display: inline-block;
+            margin: 0 40px;
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--navy);
+        }
+        
+        .trust-item i {
+            font-size: 36px;
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        .section-title {
+            font-size: 44px;
+            font-weight: bold;
+            color: var(--navy);
+            text-align: center;
+            margin-bottom: 50px;
+            padding-bottom: 20px;
+            border-bottom: 4px solid var(--gold);
+        }
+        
+        .service-card {
+            background: var(--light-gray);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            border: 3px solid #e0e0e0;
+            min-height: 400px;
+        }
+        
+        .service-card h3 {
+            font-size: 32px;
+            font-weight: bold;
+            color: var(--navy);
+            margin-bottom: 25px;
+        }
+        
+        .service-card p {
+            font-size: 22px;
+            line-height: 1.8;
+        }
+        
+        .service-card .btn {
+            font-size: 22px;
+            padding: 15px 35px;
+            background: var(--navy);
+            color: var(--white);
+            border-radius: 10px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+        }
+        
+        .service-card .btn:hover {
+            background: var(--gold);
+            color: var(--navy);
+        }
+        
+        .icon-large {
+            font-size: 72px;
+            color: var(--gold);
+            margin-bottom: 25px;
+        }
+        
+        .location-section {
+            background: var(--navy);
+            color: var(--white);
+            padding: 80px 0;
+        }
+        
+        .location-section h2 {
+            font-size: 44px;
+            color: var(--gold);
+            margin-bottom: 30px;
+        }
+        
+        .location-section p {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        
+        .contact-card {
+            background: var(--white);
+            color: var(--dark-text);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .contact-card h3 {
+            font-size: 32px;
+            color: var(--navy);
+            margin-bottom: 25px;
+        }
+        
+        .contact-card p {
+            font-size: 24px;
+        }
+        
+        .phone-number {
+            font-size: 36px;
+            font-weight: bold;
+            color: var(--navy);
+            text-decoration: none;
+        }
+        
+        .phone-number:hover {
+            color: var(--gold-dark);
+        }
+        
+        footer {
+            background: #0f2540;
+            color: var(--white);
+            padding: 50px 0;
+            text-align: center;
+        }
+        
+        footer p {
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+        
+        footer a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
+        }
+        
+        .breadcrumb-nav {
+            background: var(--light-gray);
+            padding: 25px 0;
+            font-size: 22px;
+        }
+        
+        .breadcrumb-nav a {
+            color: var(--navy);
+            text-decoration: none;
+        }
+        
+        .breadcrumb-nav a:hover {
+            text-decoration: underline;
+        }
+        
+        .breadcrumb-nav span {
+            margin: 0 15px;
+            color: #666;
+        }
+        
+        .page-header {
+            background: var(--navy);
+            color: var(--white);
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            font-size: 52px;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+        
+        .page-header p {
+            font-size: 26px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .video-card {
+            background: var(--light-gray);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 3px solid #e0e0e0;
+        }
+        
+        .video-placeholder {
+            background: var(--navy);
+            color: var(--white);
+            height: 300px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin-bottom: 25px;
+        }
+        
+        .video-card h3 {
+            font-size: 28px;
+            color: var(--navy);
+            margin-bottom: 15px;
+        }
+        
+        .video-card p {
+            font-size: 20px;
+        }
+        
+        .faq-item {
+            background: var(--light-gray);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 25px;
+            border-left: 8px solid var(--gold);
+        }
+        
+        .faq-item h4 {
+            font-size: 26px;
+            color: var(--navy);
+            margin-bottom: 15px;
+        }
+        
+        .faq-item p {
+            font-size: 22px;
+            margin: 0;
+        }
+        
+        @media (max-width: 768px) {
+            body { font-size: 18px; }
+            .hero-section h1 { font-size: 36px; }
+            .section-title { font-size: 34px; }
+            .btn-call { font-size: 22px; padding: 15px 30px; }
+            .btn-secondary-custom { font-size: 20px; margin-left: 0; margin-top: 15px; }
+            .trust-item { display: block; margin: 20px 0; }
+            .service-card { min-height: auto; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                Louisville Smart Squad
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" style="border: 2px solid var(--gold); padding: 10px;">
+                <span style="color: var(--gold); font-size: 24px;">MENU</span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="residential.html">Home Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="commercial.html">Business Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="video-blog.html">Video Tips</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <h1>Your Friendly Neighborhood Computer Help in Louisville, Kentucky</h1>
+                    <p>Need help with your computer, phone, or smart devices? We're your neighbors in Louisville who make technology simple and stress-free. No jargon, just friendly help!</p>
+                    <div>
+                        <a href="tel:+12029488888" class="btn-call">
+                            Call Us: (202) 948-8888
+                        </a>
+                        <a href="residential.html" class="btn-secondary-custom">
+                            Home Services
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="trust-bar">
+        <div class="container">
+            <div class="trust-item">
+                <i class="bi bi-shield-check"></i>
+                Trusted Since 2010
+            </div>
+            <div class="trust-item">
+                <i class="bi bi-geo-alt"></i>
+                Louisville & Surrounding Areas
+            </div>
+            <div class="trust-item">
+                <i class="bi bi-people"></i>
+                Hundreds of Happy Customers
+            </div>
+        </div>
+    </section>
+
+    <section style="padding: 80px 0;">
+        <div class="container">
+            <h2 class="section-title">How Can We Help You Today?</h2>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="service-card">
+                        <div class="icon-large"><i class="bi bi-house-heart"></i></div>
+                        <h3>Home Computer Help</h3>
+                        <p>Feeling that sinking frustration when your computer crawls along, you can’t get online, or your new tablet or phone just won’t cooperate - leaving you missing video calls with the grandkids, struggling to share photos, or feeling more and more left behind as everyone else stays connected so easily? You’re not alone, and it doesn’t have to stay that way. We come right to your home here in Louisville, with patient, plain-English help that feels like chatting with a kind neighbor - no rush, no confusing tech jargon, and never any judgment. Whether it’s fixing a slow PC, setting up email, or learning to video chat face-to-face with family, we take the time so you feel confident, independent, and back in control - enjoying those precious moments with loved ones again instead of staring at a blank screen.</p>
+                        <a href="residential.html">See Home Services &rarr;</a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="service-card">
+                        <div class="icon-large"><i class="bi bi-building"></i></div>
+                        <h3>Business Computer Help</h3>
+                        <p>Running a small business in Jefferson County or the East End is tough enough without your computers slowing to a crawl, crashing at the worst moment, or leaving you stuck troubleshooting instead of serving customers. Every hour wasted on tech glitches means lost sales, frustrated staff, missed opportunities, and more stress piled on your already full plate. We come right to your business — fast, reliable, and local — so you can stop worrying about downtime and get back to what truly matters: growing your company and taking care of your customers. We speak plain English, fix problems quickly, and make sure your systems run smoothly so you stay in control and focused on building success, not battling technology.</p>
+                        <a href="commercial.html">See Business Services &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="background: var(--light-gray); padding: 80px 0;">
+        <div class="container">
+            <h2 class="section-title">Why Choose Louisville Smart Squad?</h2>
+	    <p>
+Tired of feeling overwhelmed or embarrassed when technology doesn’t cooperate - whether it’s struggling with a simple email, missing video calls with grandkids, or watching your business lose precious hours to computer crashes and slowdowns? At Louisville Smart Squad, we’re different because we truly care. We make tech simple and stress-free so you can feel confident, stay connected with the people who matter most, and focus on what brings you joy or success every day. No confusing jargon, no judgment - just patient, local help that respects your time and intelligence.
+	    </p>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="service-card" style="text-align: center;">
+                        <div class="icon-large"><i class="bi bi-emoji-smile"></i></div>
+                        <h3>Friendly Service</h3>
+                        <p>Tired of feeling overwhelmed or embarrassed when technology doesn’t cooperate — whether it’s struggling with a simple email, missing video calls with grandkids, or watching your business lose precious hours to computer crashes and slowdowns? At Louisville Smart Squad, we’re different because we truly care. We make tech simple and stress-free so you can feel confident, stay connected with the people who matter most, and focus on what brings you joy or success every day. No confusing jargon, no judgment — just patient, local help that respects your time and intelligence.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-card" style="text-align: center;">
+                        <div class="icon-large"><i class="bi bi-house"></i></div>
+                        <h3>We Come To You</h3>
+                        <p>No question is too simple — and you’ll never feel silly for asking. Many folks worry they’ll be made to feel slow or foolish when tech problems come up, but here at Louisville Smart Squad we love helping people just like you. Whether you’re a senior wanting to confidently video chat with family or a local business owner needing straightforward answers without the tech-speak, our friendly team listens patiently, explains everything in plain English, and treats you with the respect and kindness you deserve. You’ll walk away feeling smarter, more capable, and genuinely supported — never rushed or talked down to.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-card" style="text-align: center;">
+                        <div class="icon-large"><i class="bi bi-currency-dollar"></i></div>
+                        <h3>Fair Prices</h3>
+                        <p>Worrying about hidden fees or surprise charges on top of tech troubles only adds unnecessary stress — especially when you’re already feeling vulnerable or stretched thin running a small business. With Louisville Smart Squad, you get upfront, honest pricing with no surprises. We explain everything clearly before any work begins, so you stay fully in control and confident in your decision. You’ll never feel taken advantage of — just fairly treated by a local team that values your trust as much as we value helping you get back to enjoying family connections or growing your business.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="location-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-7">
+                    <h2>We Serve All of Louisville & The Surrounding Areas</h2>
+                    <p><i class="bi bi-geo-alt-fill" style="color: var(--gold);"></i> <strong>East Louisville, St. Matthews, Prospect, Jeffersonstown, Middletown, Old Louisville, Highlands, and more!</strong></p>
+                    <p style="margin-top: 30px;">Whether you're in the heart of downtown or out in the suburbs, we're happy to come help you. Just give us a call!</p>
+                </div>
+                <div class="col-lg-5">
+                    <div class="contact-card">
+                        <h3>Ready to Get Help?</h3>
+                        <p style="margin-bottom: 20px;">Call or text us anytime!</p>
+                        <a href="tel:+12029488888" class="phone-number">
+                            (202) 948-8888
+                        </a>
+			<!--
+                        <p style="margin-top: 20px; font-size: 18px; color: #666;">
+                            Or email: help@LouisvilleSmartSquad.com
+                        </p>
+			-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="padding: 80px 0;">
+        <div class="container">
+            <h2 class="section-title">What Our Neighbors Say</h2>
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="service-card">
+                        <p style="font-style: italic; font-size: 22px;">"They were so patient with me! I had so many questions and they never made me feel rushed. My tablet is working great now!"</p>
+                        <p style="margin-top: 20px; font-weight: bold;">- Mary from St. Matthews</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="service-card">
+                        <p style="font-style: italic; font-size: 22px;">"Finally understand how to video chat with my grandkids! Thank you Louisville Smart Squad!"</p>
+                        <p style="margin-top: 20px; font-weight: bold;">- Robert from Jeffersontown</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="service-card">
+                        <p style="font-style: italic; font-size: 22px;">"Quick, affordable, and friendly. They fixed my computer and even showed me how to avoid those scam emails!"</p>
+                        <p style="margin-top: 20px; font-weight: bold;">- Betty from the Highlands</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p style="font-size: 28px; color: var(--gold); margin-bottom: 10px;"><strong>Louisville Smart Squad</strong></p>
+            <p>Your friendly neighborhood tech help in Louisville, Kentucky</p>
+            <p style="margin-top: 30px;"><strong>Call us: (202) 948-8888</strong></p>
+            <p style="margin-top: 30px;">
+                <a href="index.html">Home</a> &nbsp;|&nbsp; 
+                <a href="residential.html">Home Services</a> &nbsp;|&nbsp; 
+                <a href="commercial.html">Business Services</a> &nbsp;|&nbsp; 
+                <a href="video-blog.html">Video Tips</a>
+            </p>
+            <p style="margin-top: 30px; font-size: 16px; color: #999;">
+                Serving Louisville, Jefferson County, Oldham County, and surrounding areas in Kentucky
+            </p>
+            <p style="margin-top: 20px; font-size: 16px;">
+                &copy; 2026 Louisville Smart Squad. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

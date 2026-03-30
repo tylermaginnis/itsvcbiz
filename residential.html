@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Computer Help - Louisville Smart Squad</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Verdana:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * { font-family: 'Verdana', sans-serif; }
+        
+        :root {
+            --gold: #D4A017;
+            --gold-dark: #B8860B;
+            --navy: #1a365d;
+            --white: #ffffff;
+            --light-gray: #f5f5f5;
+            --dark-text: #1a1a1a;
+        }
+        
+        body {
+            background: var(--white);
+            color: var(--dark-text);
+            font-size: 20px;
+            line-height: 1.6;
+        }
+        
+        .navbar {
+            background: var(--navy) !important;
+            padding: 15px 0;
+        }
+        
+        .navbar-brand {
+            font-size: 28px;
+            font-weight: bold;
+            color: var(--gold) !important;
+        }
+        
+        .nav-link {
+            color: var(--white) !important;
+            font-size: 22px;
+            font-weight: bold;
+            padding: 10px 20px !important;
+            border-radius: 8px;
+            transition: background 0.3s;
+        }
+        
+        .nav-link:hover {
+            background: rgba(212, 160, 23, 0.2);
+            color: var(--gold) !important;
+        }
+        
+        .nav-link.active {
+            background: var(--gold);
+            color: var(--navy) !important;
+        }
+        
+        .breadcrumb-nav {
+            background: var(--light-gray);
+            padding: 25px 0;
+            font-size: 22px;
+        }
+        
+        .breadcrumb-nav a {
+            color: var(--navy);
+            text-decoration: none;
+        }
+        
+        .breadcrumb-nav a:hover {
+            text-decoration: underline;
+        }
+        
+        .page-header {
+            background: var(--navy);
+            color: var(--white);
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            font-size: 52px;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+        
+        .page-header p {
+            font-size: 26px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .btn-call {
+            background: var(--gold);
+            color: var(--navy);
+            font-size: 28px;
+            font-weight: bold;
+            padding: 20px 50px;
+            border-radius: 15px;
+            border: 4px solid var(--gold-dark);
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+        
+        .btn-call:hover {
+            background: var(--gold-dark);
+            color: var(--white);
+            transform: scale(1.05);
+        }
+        
+        .section-title {
+            font-size: 44px;
+            font-weight: bold;
+            color: var(--navy);
+            text-align: center;
+            margin-bottom: 50px;
+            padding-bottom: 20px;
+            border-bottom: 4px solid var(--gold);
+        }
+        
+        .service-card {
+            background: var(--light-gray);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            border: 3px solid #e0e0e0;
+        }
+        
+        .service-card h3 {
+            font-size: 32px;
+            font-weight: bold;
+            color: var(--navy);
+            margin-bottom: 25px;
+        }
+        
+        .service-card p {
+            font-size: 22px;
+            line-height: 1.8;
+        }
+        
+        .icon-large {
+            font-size: 72px;
+            color: var(--gold);
+            margin-bottom: 25px;
+        }
+        
+        .check-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+        
+        .check-list li {
+            font-size: 22px;
+            margin-bottom: 15px;
+            padding-left: 45px;
+            position: relative;
+        }
+        
+        .check-list li::before {
+            content: "\2713";
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+            font-weight: bold;
+            font-size: 28px;
+        }
+        
+        .areas-section {
+            background: var(--navy);
+            color: var(--white);
+            padding: 80px 0;
+        }
+        
+        .areas-section h2 {
+            font-size: 44px;
+            color: var(--gold);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .areas-section p {
+            font-size: 24px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .areas-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            font-size: 22px;
+        }
+        
+        .area-item {
+            background: rgba(255,255,255,0.1);
+            padding: 15px 30px;
+            border-radius: 10px;
+            border: 2px solid var(--gold);
+        }
+        
+        .contact-section {
+            background: var(--light-gray);
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .contact-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 50px;
+            border: 4px solid var(--navy);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .phone-number {
+            font-size: 48px;
+            font-weight: bold;
+            color: var(--navy);
+            text-decoration: none;
+            display: block;
+            margin: 30px 0;
+        }
+        
+        .phone-number:hover {
+            color: var(--gold-dark);
+        }
+        
+        footer {
+            background: #0f2540;
+            color: var(--white);
+            padding: 50px 0;
+            text-align: center;
+        }
+        
+        footer p {
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+        
+        footer a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            body { font-size: 18px; }
+            .page-header h1 { font-size: 36px; }
+            .section-title { font-size: 34px; }
+            .btn-call { font-size: 22px; padding: 15px 30px; }
+            .phone-number { font-size: 36px; }
+            .check-list li { font-size: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                Louisville Smart Squad
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" style="border: 2px solid var(--gold); padding: 10px;">
+                <span style="color: var(--gold); font-size: 24px;">MENU</span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="residential.html">Home Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="commercial.html">Business Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="video-blog.html">Video Tips</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="breadcrumb-nav">
+        <div class="container">
+            <a href="index.html">Home</a>
+            <span>&raquo;</span>
+            <strong>Home Computer Help</strong>
+        </div>
+    </div>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>Home Computer & Device Help</h1>
+            <p>Friendly, patient technology help right in your Louisville home. No jargon, no stress - just straightforward help when you need it.</p>
+        </div>
+    </section>
+
+    <section style="padding: 80px 0;">
+        <div class="container">
+            <h2 class="section-title">What We Help With At Home</h2>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="service-card">
+                        <div class="icon-large"><i class="bi bi-laptop"></i></div>
+                        <h3>Computer Problems</h3>
+                        <p>Is your computer running slow? Acting strange? Won't connect to the internet? We can help fix all sorts of computer problems and get things running smoothly again.</p>
+                        <ul class="check-list">
+                            <li>Speed up slow computers</li>
+                            <li>Fix internet connection issues</li>
+                            <li>Remove viruses and pop-ups</li>
+                            <li>Data backup and recovery</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="service-card">
+                        <div class="icon-large"><i class="bi bi-phone"></i></div>
+                        <h3>Phones & Tablets</h3>
+                        <p>New to smartphones or tablets? We love helping folks get comfortable with their devices. Learn to text, video chat, download apps, and more!</p>
+                        <ul class="check-list">
+                            <li>Set up new phones and tablets</li>
+                            <li>Teach video calling (FaceTime, Zoom)</li>
+                            <li>Help with texting and photos</li>
+                            <li>Install helpful apps</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="service-card">
+                        <div class="icon-large"><i class="bi bi-wifi"></i></div>
+                        <h3>Internet & WiFi</h3>
+                        <p>Having trouble getting online? We can help set up your home WiFi, troubleshoot connection problems, and make sure your internet is working reliably.</p>
+                        <ul class="check-list">
+                            <li>Set up home WiFi</li>
+                            <li>Fix WiFi dead spots</li>
+                            <li>Connect devices to internet</li>
+                            <li>Improve WiFi signal strength</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="service-card">
+                        <div class="icon-large"><i class="bi bi-tv"></i></div>
+                        <h3>Smart TVs & Streaming</h3>
+                        <p>Want to watch your favorite shows on Netflix, Hulu, or other streaming services? We'll get your smart TV set up and show you how to use it.</p>
+                        <ul class="check-list">
+                            <li>Set up Smart TVs</li>
+                            <li>Install Netflix, Hulu, Disney+</li>
+                            <li>Connect to streaming services</li>
+                            <li>Show you how to navigate</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="areas-section">
+        <div class="container">
+            <h2>We Come To Your Home!</h2>
+            <p>We travel all over the Louisville area to help you in the comfort of your own home. No need to pack up your computer and bring it somewhere!</p>
+            <div class="areas-list">
+                <div class="area-item">East Louisville</div>
+                <div class="area-item">St. Matthews</div>
+                <div class="area-item">Prospect</div>
+                <div class="area-item">Jeffersontown</div>
+                <div class="area-item">Middletown</div>
+                <div class="area-item">Old Louisville</div>
+                <div class="area-item">Highlands</div>
+                <div class="area-item">Downtown</div>
+                <div class="area-item">Germantown</div>
+                <div class="area-item">Clarksville</div>
+                <div class="area-item">New Albany</div>
+                <div class="area-item">Jeffersonville</div>
+            </div>
+        </div>
+    </section>
+
+    <section style="padding: 80px 0;">
+        <div class="container">
+            <h2 class="section-title">Common Questions From Homeowners</h2>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="service-card">
+                        <h3>How much does home help cost?</h3>
+                        <p>We offer free estimates! We'll tell you exactly what the cost will be before we do any work. No surprises, no hidden fees.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="service-card">
+                        <h3>Do I need to bring my computer somewhere?</h3>
+                        <p>Nope! We come right to your home. Stay comfortable while we help you. We'll work on whatever device you're having trouble with.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="service-card">
+                        <h3>What if I have questions later?</h3>
+                        <p>We're always happy to answer questions, even after we're done helping you. Just give us a call!</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="service-card">
+                        <h3>Is my information safe?</h3>
+                        <p>Absolutely! Your privacy is very important to us. We never share your personal information and always handle your devices with care.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-card">
+                <h2 style="font-size: 36px; color: var(--navy); margin-bottom: 20px;">Ready To Get Started?</h2>
+                <p style="font-size: 24px;">Give us a call! We're friendly and happy to chat about what you need help with.</p>
+                <a href="tel:+12029488888" class="phone-number">
+                    (202) 948-8888
+                </a>
+		<!--
+                <p style="font-size: 20px; color: #666;">
+                    Or email us at: help@LouisvilleSmartSquad.com
+                </p>
+		-->
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p style="font-size: 28px; color: var(--gold); margin-bottom: 10px;"><strong>Louisville Smart Squad</strong></p>
+            <p>Your friendly neighborhood tech help in Louisville, Kentucky</p>
+            <p style="margin-top: 30px;"><strong>Call us: (202) 948-8888</strong></p>
+            <p style="margin-top: 30px;">
+                <a href="index.html">Home</a> &nbsp;|&nbsp; 
+                <a href="residential.html">Home Services</a> &nbsp;|&nbsp; 
+                <a href="commercial.html">Business Services</a> &nbsp;|&nbsp; 
+                <a href="video-blog.html">Video Tips</a>
+            </p>
+            <p style="margin-top: 20px; font-size: 16px;">
+                &copy; 2026 Louisville Smart Squad. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

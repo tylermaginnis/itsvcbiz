@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Computer Services - Louisville Smart Squad</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Verdana:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * { font-family: 'Verdana', sans-serif; }
+        
+        :root {
+            --gold: #D4A017;
+            --gold-dark: #B8860B;
+            --navy: #1a365d;
+            --white: #ffffff;
+            --light-gray: #f5f5f5;
+            --dark-text: #1a1a1a;
+        }
+        
+        body {
+            background: var(--white);
+            color: var(--dark-text);
+            font-size: 20px;
+            line-height: 1.6;
+        }
+        
+        .navbar {
+            background: var(--navy) !important;
+            padding: 15px 0;
+        }
+        
+        .navbar-brand {
+            font-size: 28px;
+            font-weight: bold;
+            color: var(--gold) !important;
+        }
+        
+        .nav-link {
+            color: var(--white) !important;
+            font-size: 22px;
+            font-weight: bold;
+            padding: 10px 20px !important;
+            border-radius: 8px;
+            transition: background 0.3s;
+        }
+        
+        .nav-link:hover {
+            background: rgba(212, 160, 23, 0.2);
+            color: var(--gold) !important;
+        }
+        
+        .nav-link.active {
+            background: var(--gold);
+            color: var(--navy) !important;
+        }
+        
+        .breadcrumb-nav {
+            background: var(--light-gray);
+            padding: 25px 0;
+            font-size: 22px;
+        }
+        
+        .breadcrumb-nav a {
+            color: var(--navy);
+            text-decoration: none;
+        }
+        
+        .breadcrumb-nav a:hover {
+            text-decoration: underline;
+        }
+        
+        .page-header {
+            background: var(--navy);
+            color: var(--white);
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            font-size: 52px;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+        
+        .page-header p {
+            font-size: 26px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .btn-call {
+            background: var(--gold);
+            color: var(--navy);
+            font-size: 28px;
+            font-weight: bold;
+            padding: 20px 50px;
+            border-radius: 15px;
+            border: 4px solid var(--gold-dark);
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+        
+        .btn-call:hover {
+            background: var(--gold-dark);
+            color: var(--white);
+            transform: scale(1.05);
+        }
+        
+        .section-title {
+            font-size: 44px;
+            font-weight: bold;
+            color: var(--navy);
+            text-align: center;
+            margin-bottom: 50px;
+            padding-bottom: 20px;
+            border-bottom: 4px solid var(--gold);
+        }
+        
+        .service-card {
+            background: var(--light-gray);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            border: 3px solid #e0e0e0;
+        }
+        
+        .service-card h3 {
+            font-size: 32px;
+            font-weight: bold;
+            color: var(--navy);
+            margin-bottom: 25px;
+        }
+        
+        .service-card p {
+            font-size: 22px;
+            line-height: 1.8;
+        }
+        
+        .icon-large {
+            font-size: 72px;
+            color: var(--gold);
+            margin-bottom: 25px;
+        }
+        
+        .check-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+        
+        .check-list li {
+            font-size: 22px;
+            margin-bottom: 15px;
+            padding-left: 45px;
+            position: relative;
+        }
+        
+        .check-list li::before {
+            content: "\2713";
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+            font-weight: bold;
+            font-size: 28px;
+        }
+        
+        .benefits-section {
+            background: var(--navy);
+            color: var(--white);
+            padding: 80px 0;
+        }
+        
+        .benefits-section h2 {
+            font-size: 44px;
+            color: var(--gold);
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        
+        .benefit-card {
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            height: 100%;
+        }
+        
+        .benefit-card h4 {
+            font-size: 28px;
+            color: var(--gold);
+            margin-bottom: 15px;
+        }
+        
+        .benefit-card p {
+            font-size: 20px;
+        }
+        
+        .contact-section {
+            background: var(--light-gray);
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .contact-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 50px;
+            border: 4px solid var(--navy);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .phone-number {
+            font-size: 48px;
+            font-weight: bold;
+            color: var(--navy);
+            text-decoration: none;
+            display: block;
+            margin: 30px 0;
+        }
+        
+        .phone-number:hover {
+            color: var(--gold-dark);
+        }
+        
+        footer {
+            background: #0f2540;
+            color: var(--white);
+            padding: 50px 0;
+            text-align: center;
+        }
+        
+        footer p {
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+        
+        footer a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            body { font-size: 18px; }
+            .page-header h1 { font-size: 36px; }
+            .section-title { font-size: 34px; }
+            .btn-call { font-size: 22px; padding: 15px 30px; }
+            .phone-number { font-size: 36px; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                Louisville Smart Squad
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" style="border: 2px solid var(--gold); padding: 10px;">
+                <span style="color: var(--gold); font-size: 24px;">MENU</span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="residential.html">Home Services</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="commercial.html">Business Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="video-blog.html">Video Tips</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="breadcrumb-nav">
+        <div class="container">
+            <a href="index.html">Home</a>
+            <span>&raquo;</span>
+            <strong>Business Computer Services</strong>
+        </div>
+    </div>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>Business Computer Services</h1>
+            <p>Reliable, friendly technology support for small businesses in Louisville, Jefferson County, and the surrounding Kentucky area.</p>
+        </div>
+    </section>
+
+    <section style="padding: 80px 0;">
+        <div class="container">
+            <h2 class="section-title">How We Help Local Businesses</h2>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="service-card">
+                        <div class="icon-large"><i class="bi bi-pc-display"></i></div>
+                        <h3>Computer Setup & Support</h3>
+                        <p>Setting up new computers? Having issues with your existing ones? We help businesses in Louisville get their technology working right so you can focus on your customers.</p>
+                        <ul class="check-list">
+                            <li>Set up new computers and networks</li>
+                            <li>Fix computer problems fast</li>
+                            <li>Network setup and troubleshooting</li>
+                            <li>Printer and device setup</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="service-card">
+                        <div class="icon-large"><i class="bi bi-shield-lock"></i></div>
+                        <h3>Security & Protection</h3>
+                        <p>Keep your business data safe! We help protect your computers from viruses, hackers, and other threats. Peace of mind for you and your business.</p>
+                        <ul class="check-list">
+                            <li>Antivirus installation and updates</li>
+                            <li>Data backup solutions</li>
+                            <li>Security assessments</li>
+                            <li>Employee security training</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="service-card">
+                        <div class="icon-large"><i class="bi bi-arrow-repeat"></i></div>
+                        <h3>Maintenance & Updates</h3>
+                        <p>Keep things running smoothly with regular maintenance. We can set up a plan to keep your computers updated and working their best.</p>
+                        <ul class="check-list">
+                            <li>Regular system updates</li>
+                            <li>Performance tune-ups</li>
+                            <li>Software installation</li>
+                            <li>Scheduled maintenance plans</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="service-card">
+                        <div class="icon-large"><i class="bi bi-people"></i></div>
+                        <h3>IT Consulting</h3>
+                        <p>Not sure what technology you need? We can help you plan and make smart decisions about computers and software for your business.</p>
+                        <ul class="check-list">
+                            <li>Technology planning</li>
+                            <li>Software recommendations</li>
+                            <li>Hardware purchasing help</li>
+                            <li>Vendor coordination</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="benefits-section">
+        <div class="container">
+            <h2>Why Louisville Businesses Choose Us</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="benefit-card">
+                        <h4>We Speak Plain English</h4>
+                        <p>No confusing tech jargon! We explain things in simple terms you can understand.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="benefit-card">
+                        <h4>Flexible Scheduling</h4>
+                        <p>Work around your business hours. Early morning, evening, or weekend - we work with your schedule.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="benefit-card">
+                        <h4>Fair, Honest Pricing</h4>
+                        <p>Upfront quotes with no surprises. You'll always know what you're paying before we start work.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-md-4">
+                    <div class="benefit-card">
+                        <h4>Local & Reliable</h4>
+                        <p>Right here in Louisville. We're not some big corporation - we're your neighbors!</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="benefit-card">
+                        <h4>Quick Response</h4>
+                        <p>When you have a problem, we respond fast. We know downtime costs you money.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="benefit-card">
+                        <h4>Trusted Partner</h4>
+                        <p>Many Louisville businesses have been counting on us for years. We treat your business like our own.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="padding: 80px 0;">
+        <div class="container">
+            <h2 class="section-title">Types of Businesses We Help</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="service-card" style="text-align: center;">
+                        <div class="icon-large"><i class="bi bi-shop"></i></div>
+                        <h3>Retail Shops</h3>
+                        <p>Point of sale systems, inventory computers, customer-facing displays, and more.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-card" style="text-align: center;">
+                        <div class="icon-large"><i class="bi bi-briefcase"></i></div>
+                        <h3>Professional Offices</h3>
+                        <p>Law offices, accounting firms, medical offices - any business with computers.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-card" style="text-align: center;">
+                        <div class="icon-large"><i class="bi bi-heart-pulse"></i></div>
+                        <h3>Healthcare</h3>
+                        <p>HIPAA-conscious IT support for medical and dental practices.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-card" style="text-align: center;">
+                        <div class="icon-large"><i class="bi bi-tools"></i></div>
+                        <h3>Contractors</h3>
+                        <p>Field service companies, construction firms, and trade businesses.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-card" style="text-align: center;">
+                        <div class="icon-large"><i class="bi bi-house-heart"></i></div>
+                        <h3>Property Management</h3>
+                        <p>Apartments, HOAs, and real estate offices with technology needs.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-card" style="text-align: center;">
+                        <div class="icon-large"><i class="bi bi-calendar-check"></i></div>
+                        <h3>Non-Profits</h3>
+                        <p>Churches, charities, and community organizations with limited budgets.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-card">
+                <h2 style="font-size: 36px; color: var(--navy); margin-bottom: 20px;">Let's Talk About Your Business</h2>
+                <p style="font-size: 24px;">Every business is different. Let's chat about what you need and find a solution that works for you.</p>
+                <a href="tel:+12029488888" class="phone-number">
+                    (202) 948-8888
+                </a>
+		<!--
+                <p style="font-size: 20px; color: #666;">
+                    Or email us at: business@LouisvilleSmartSquad.com
+		</p>-->
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p style="font-size: 28px; color: var(--gold); margin-bottom: 10px;"><strong>Louisville Smart Squad</strong></p>
+            <p>Your friendly neighborhood tech help in Louisville, Kentucky</p>
+            <p style="margin-top: 30px;"><strong>Call us: (202) 948-8888</strong></p>
+            <p style="margin-top: 30px;">
+                <a href="index.html">Home</a> &nbsp;|&nbsp; 
+                <a href="residential.html">Home Services</a> &nbsp;|&nbsp; 
+                <a href="commercial.html">Business Services</a> &nbsp;|&nbsp; 
+                <a href="video-blog.html">Video Tips</a>
+            </p>
+            <p style="margin-top: 20px; font-size: 16px;">
+                &copy; 2026 Louisville Smart Squad. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
